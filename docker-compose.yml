@@ -1,0 +1,15 @@
+version: "2"
+services:
+        orthanc:
+                image: osimis/orthanc
+                restart: unless-stopped
+                ports: ["104:4242", "80:8042"]
+                volumes: ["/Users/Nano/git/testimagem/orthanc-db:/var/lib/orthanc/db",
+                          "/Users/Nano/git/testimagem/orthanc.json:/etc/orthanc/orthanc.json:ro"]
+                environment:
+                        - NAME= "OsimisOrthanc"
+                        - WVB_ENABLED=true
+                          #- DICOM_AET=MY_ORTHANC
+#volumes:
+#        orthanc-storage: "/Users/Nano/prog/tesimagem/orthanc-db"
+#       orthanc-json: "/Users/Nano/prog/testimagem/orthanc.json"
